@@ -30,6 +30,6 @@
 
 @layer components{
   .bg-glass{
-    @apply  bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 border border-gray-800
+    @apply  bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10 border border-white
   }
 }
