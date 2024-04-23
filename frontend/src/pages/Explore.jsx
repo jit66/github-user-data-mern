@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Spinner from '../components/Spinner';
 import Repos from '../components/Repos';
+import toast from 'react-hot-toast';
 
 const Explore = () => {
 
@@ -15,7 +16,7 @@ const Explore = () => {
 		setLoading(true);
 		setRepos([]);
 		try {
-			const res = await fetch(`http://localhost:5001/api/explore/repos/${language}`)
+			const res = await fetch(`/api/explore/repos/${language}`)
 			const {repos} = await res.json();
 
 			setRepos(repos);

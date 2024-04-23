@@ -3,32 +3,17 @@ import { RiGitRepositoryFill, RiUserFollowFill, RiUserFollowLine } from "react-i
 import { FaXTwitter } from "react-icons/fa6";
 import { TfiThought } from "react-icons/tfi";
 import { FaEye } from "react-icons/fa";
-import { formatMemberSince } from "../utils/helper";
+import { formatMemberSince } from "../utils/functions";
+import LikeProfile from "./LikeProfile";
 
 const Profile = ({userProfile}) => {
-	// const userProfile = {
-	// 	avatar_url: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
-	// 	bio: "👨🏻‍💻👨🏻‍💻👨🏻‍💻",
-	// 	email: "johndoe@gmail.com",
-	// 	followers: 100,
-	// 	following: 200,
-	// 	html_url: "https://github.com/burakorkmez",
-	// 	location: "Somewhere, Earth",
-	// 	name: "John Doe",
-	// 	public_gists: 100,
-	// 	public_repos: 100,
-	// 	twitter_username: "johndoe",
-	// 	login: "johndoe",
-	// };
 
   const memberSince = formatMemberSince(userProfile?.created_at) 
-
 
     return (
       <div className="lg:w-1/3 w-full flex flex-col gap-2 lg:sticky md:top-10">
         <div className="bg-glass rounded-lg p-4">
           <div className="flex gap-4 items-center">
-            
             {/* User Avatar */}
             <a href={userProfile?.html_url} target="_blank" rel="noreferrer">
               <img
@@ -38,6 +23,7 @@ const Profile = ({userProfile}) => {
               />
             </a>
             <div className="flex gap-2 items-center flex-col">
+              <LikeProfile userProfile={userProfile} />
               <a
                 href={userProfile?.html_url}
                 target="_blank"
@@ -58,7 +44,6 @@ const Profile = ({userProfile}) => {
             </div>
           ) : null}
 
-        
           {/* Location */}
           {userProfile?.location ? (
             <div className="flex items-center gap-2">
@@ -67,8 +52,6 @@ const Profile = ({userProfile}) => {
             </div>
           ) : null}
 
-        
-        
           {/* Twitter Username */}
           {userProfile?.twitter_username ? (
             <a
@@ -82,8 +65,6 @@ const Profile = ({userProfile}) => {
             </a>
           ) : null}
 
-     
-     
           {/* member till Date */}
           <div className="my-2">
             <p className="text-gray-600 font-bold text-sm">Member since</p>
